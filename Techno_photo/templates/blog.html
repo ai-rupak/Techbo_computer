@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="home" id="home">
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper">
+            <!-- 1  -->
+        
+            <div class="swiper-slide slide">
+
+                <div class="image">
+                
+                    <img src="{% for i in post %}{{i.featured_image.url}}{% endfor %}" alt="Images">
+                </div>
+                <div class="content">
+                    <span>Our Special Photographs</span>
+                    <h4>{% for i in post %}{{i.title}}{% endfor %}</h4>
+                    <br><br>
+                    <p>{% for i in post %}{{i.content |truncatechars:400|safe}}{% endfor %}
+                    </p>
+                    {% comment %} <a href="#" class="btn">See Details</a> {% endcomment %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<!-- booking slot starts here  -->
+<section class="slot" id="slot">
+    <h3 class="sub-heading">Book Your Event </h3>
+    <h1 class="heading">VERY AFFORDABLE </h1>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        {% elif message.tags == 'success' %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                           {{message}}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                </div>
+
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="inputBox">
+            <div class="input">
+                <span>Your Name</span>
+                <input type="text" name="name" id="" placeholder="Enter Your Name" required>
+            </div>
+            <div class="input">
+                <span>Your Mobile Number</span>
+                <input type="tel" name="mobile_no" id="" placeholder="Enter Your mobile number" required>
+            </div>
+        </div>
+
+
+        <div class="inputBox">
+            <div class="input">
+                <span>Your Event</span>
+                <input type="text" name="event_name" id="" placeholder="Event Name" required>
+            </div>
+            <div class="input">
+                <span>Date of the Event</span>
+                <input type="date" name="date" id="" placeholder="Choose Date " required>
+            </div>
+        </div>
+
+        <div class="inputBox">
+            <div class="input">
+                <span>Your Address</span>
+                <textarea name="address" id="" cols="30" rows="10" placeholder="Your Address"></textarea>
+            </div>
+            <div class="input">
+                <span>Your Message to Us</span>
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            </div>
+        </div>
+        <input type="submit" value="Book Now" class="btn">
+
+    </form>
+</section>
+<!-- booking slot ends here  -->
+
+<!-- recent work start here -->
+<section class="dishes recent_work" id="dishes recent_work">
+    <br>
+    <h3 class="sub-heading">Our Works </h3>
+    <h1 class="heading">Recent Works</h1>
+    <div class="box-container">
+        <!-- 1 -->
+        {% for i in recent_post %}
+        <div class="box">
+            
+            <img src="{{i.featured_image.url}}" alt="image" class="work">
+            <h3>{{i.title}}</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <a href="{% url "blog" i.id %}" class="btn">See Details </a>
+        </div>
+        {% endfor %}
+
+</section>
+<!-- recent work section ends here  -->
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="home" id="home">
+    <div class="swiper-container home-slider">
+        
+        <div class="swiper-wrapper wrapper">
+            <!-- 1  -->
+        {% for i in recent_post %}
+            <div class="swiper-slide slide">
+
+                <div class="image">
+                    
+                    <img src="{{i.featured_image}}" alt="Images">
+                </div>
+                <div class="content">
+                    <span>Our Special Photographs</span>
+                    <h4>{{i.title}}</h4>
+                    <br><br>
+                    <p>{{i.content |truncatechars:200|safe}}
+                    </p>
+                    {% comment %} <a href="#" class="btn">See Details</a> {% endcomment %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+
+<section class="home" id="home">
+    <div class="swiper-container home-slider">
+        <h3 class="sub-heading">Our Works </h3>
+        <h1 class="heading">Popular Works</h1>
+        <div class="swiper-wrapper wrapper">
+            <!-- 1  -->
+        {% for i in popular_post %}
+            <div class="swiper-slide slide">
+
+                <div class="image">
+                    <img src="{{i.featured_image}}" alt="Images">
+                </div>
+                <div class="content">
+                    <span>Our Special Photographs</span>
+                    <h4>{{i.title}}</h4>
+                    <br><br>
+                    <p>{{i.content |truncatechars:200|safe}}
+                    </p>
+                    {% comment %} <a href="#" class="btn">See Details</a> {% endcomment %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+</section>
+{% endblock content %}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecno Photography</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "images/logo.jpg" %}">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom css file  link  -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/vidstyle.css" %}">
+
+    {% comment %} <link rel="stylesheet" href="{% static "css/gallary.css" %}"> {% endcomment %}
+</head>
+
+<body>
+    <!-- header section starts  -->
+    <header>
+        <a href="{% url "index" %}" class="logo"><img src="{% static "images/logo.jpg" %}" alt=""></a>
+
+        <nav class="navbar">
+            <a class="" href="{% url "index" %}">Home</a>
+            <a href="#gallary">Gallary</a>
+            <a href="#about">About</a>
+            {% comment %} <a href="#dishes">Services</a> {% endcomment %}
+            <a href="#slot">Book A Slot</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-bars" id="menu-bars"></i>
+            <i class="fas fa-search" id="search-icon"></i>
+            <a href="/admin/"  ><i class = "fas fa-user" id="user-icon"></i></a>
+        </div>
+    </header>
+
+
+
+    <form action="" id="search-form">
+
+        <input type="search" placeholder="Search here " id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+        <i class="fas fa-times" id="close"></i>
+    </form>
+    <!-- header section ends  -->
+
+
+    {% block content %}{% endblock content %}
+   <!-- footer section starts  -->
+<footer class="footer" id="contact">
+        <div class="owner-photo">
+            <img src="{% static "images/owner.jpg" %}" alt="Owner Photo">
+        </div>
+        <div class="quick-links">
+            <h3>QUICK LINKS</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about"></i>About Us</a></li>
+                <li><a href="#dishes"></i>Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="quick-links">
+            <h3>CONTACT</h3>
+            <ul>
+                <li><a href="#home"><i class="fa-solid fa-envelope"></i> technophoto@gmail.com</a></li>
+                <li><a href="#about"><i class="fa-brands fa-whatsapp"></i> +91 7485643252</a></li>
+                <li><a href="#dishes"><i class="fa-solid fa-taxi"></i> Services</a></li>
+                <li><a href="#contact"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            </ul>
+        </div>
+        <div class="quick-links">
+            <h3>BLOG</h3>
+            <ul>
+                <li><a href="#home">Gallary</a></li>
+                <li><a href="#about">Wedding Photoshoot</a></li>
+                <li><a href="#dishes">Pre-Wedding Photoshoot</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+
+</footer>
+<div class="copyright">Copyright © 2024  <a target="blank" href ="https://debangshucode.github.io/freelancepf/"> DreamGuys </a>| All right reserved .</div>
+
+
+
+
+<!-- footer section ends  -->
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="{% static "js/script.js" %}"></script>
+
+
+</script>
+</body>
+
+</html>

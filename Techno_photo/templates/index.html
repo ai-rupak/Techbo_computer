@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!-- home section starts here  -->
+
+    <section class="home" id="home">
+        <div class="swiper-container home-slider">
+
+            <div class="swiper-wrapper wrapper">
+                <!-- 1  -->
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Special Photographs</span>
+                        <h3>Pre Wedding photography</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab laudantium repellat quas
+                            excepturi, aspernatur facilis quisquam perspiciatis sunt minus incidunt in nesciunt neque.
+                        </p>
+                        <a href="#slot" class="btn">Book Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="{% static "images/prewed/pw2.jpg" %}" alt="">
+                    </div>
+                </div>
+                <!-- 2  -->
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Special Photographs</span>
+                        <h3>Wedding photography</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab laudantium repellat quas
+                            excepturi, aspernatur facilis quisquam perspiciatis sunt minus incidunt in nesciunt neque.
+                        </p>
+                        <a href="#slot" class="btn">Book Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="{% static "images/haldi/haldi2.jpg" %}" alt="">
+                    </div>
+                </div>
+
+                <!-- 3  -->
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Special Photographs</span>
+                        <h3>Baby Shoot photography</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab laudantium repellat quas
+                            excepturi, aspernatur facilis quisquam perspiciatis sunt minus incidunt in nesciunt neque.
+                        </p>
+                        <a href="#slot" class="btn">Book Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="{% static "images/bbs/bb2.jpg" %}" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
+
+    </section>
+    <!-- home section ends here  -->
+
+    <!-- recent work start here -->
+    <section class="dishes recent_work" id="dishes recent_work">
+        <br>
+        <h3 class="sub-heading">Our Works </h3>
+        <h1 class="heading">Recent Works</h1>
+        <div class="box-container">
+            <!-- 1 -->
+            {% for i in recent_post %}
+            <div class="box">
+                <img src="{{i.featured_image}}" alt="" class="work">
+                <h3>{{i.title}}</h3>
+                <br>
+                {% comment %} <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div> {% endcomment %}
+                <a href="{% url "blog" i.id %}" class="btn">See Details </a>
+            </div>
+            {% endfor %}
+
+    </section>
+    <!-- recent work section ends here  -->
+
+
+    <!-- works section starts here  -->
+    <section class="dishes" id="dishes">
+        <br>
+        <h3 class="sub-heading">Our Works </h3>
+        <h1 class="heading">Popular Works</h1>
+        <div class="box-container">
+            <!-- 1 -->
+            {% for i in popular_post %}
+            <div class="box">
+                <img src="{{i.featured_image}}" alt="" class="work">
+                <h3>{{i.title}}</h3>
+                <br>
+                {% comment %} <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div> {% endcomment %}
+                <a href="{% url "blog" i.id %}" class="btn">See Details</a>
+            </div>
+            {% endfor %}
+            
+        </div>
+
+    </section>
+    <!-- works section ends here  -->
+
+    
+    
+    <!-- gallary starts here  -->
+    
+    <section class="gallary" id="gallary">
+        
+        <h3 class="sub-heading">Gallary </h3>
+        <h1 class="heading">Take a Glance</h1>
+        
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="{% static "images/prewed/pw6.jpg" %}" alt="">
+                </div>
+                <div class="content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <h3>Photography</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aliquam consequuntur ipsa,
+                        distinctio obcaecati sequi adipisci explicabo autem aperiam fugiat voluptates, error repellat?
+                    </p>
+                    <a href="{% url "gallery" %}" class="btn">Show More</a>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="box">
+                <div class="image">
+                    <img src="{% static "images/prewed/pw3.jpg" %}" alt="">
+                </div>
+                <div class="content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <h3>Videography</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aliquam consequuntur ipsa,
+                        distinctio obcaecati sequi adipisci explicabo autem aperiam fugiat voluptates, error repellat?
+                    </p>
+                    <a href="{% url "video" %}" class="btn">Show More</a>
+                </div>
+            </div>
+            
+            
+            
+            
+        </div>
+        
+    </section>
+    <!-- gallary ends here  -->
+
+    <!-- about section starts here  -->
+    <section class="about" id="about">
+        <h3 class="sub-heading">About Us </h3>
+        <h1 class="heading">Why Choose Us ?</h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="{% static "images/logo.jpg" %}" alt="">
+            </div>
+            <div class="content">
+                <h3>Techno Computer and Photography</h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores corporis placeat eligendi nisi,
+                    architecto tempora earum suscipit, totam at rerum saepe esse? Corrupti laudantium fugiat saepe fugit
+                    exercitationem totam neque quibusdam soluta dolor, nisi maxime libero aperiam suscipit iste eius
+                    cumque tempora adipisci labore error optio similique excepturi provident quaerat.</p>
+                <div class="icons-container">
+                    <div class="icons">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Free Delivery</span>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fa-rupee-sign"></i>
+                        <span>Affordable Price</span>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Available</span>
+                    </div>
+                </div>
+                <br>
+                <a href="#" class="btn">Know More</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- about section ends here  -->
+    
+    <!-- booking slot starts here  -->
+    <section class="slot" id="slot">
+        <h3 class="sub-heading">Book Your Event </h3>
+        <h1 class="heading">VERY AFFORDABLE </h1>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{message}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            {% elif message.tags == 'success' %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                               {{message}}
+                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                               </button>
+                    </div>
+
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="inputBox">
+                <div class="input">
+                    <span>Your Name</span>
+                    <input type="text" name="name" id="" placeholder="Enter Your Name" required>
+                </div>
+                <div class="input">
+                    <span>Your Mobile Number</span>
+                    <input type="tel" name="mobile_no" id="" placeholder="Enter Your mobile number" required>
+                </div>
+            </div>
+
+
+            <div class="inputBox">
+                <div class="input">
+                    <span>Your Event</span>
+                    <input type="text" name="event_name" id="" placeholder="Event Name" required>
+                </div>
+                <div class="input">
+                    <span>Date of the Event</span>
+                    <input type="date" name="date" id="" placeholder="Choose Date " required>
+                </div>
+            </div>
+
+            <div class="inputBox">
+                <div class="input">
+                    <span>Your Address</span>
+                    <textarea name="address" id="" cols="30" rows="10" placeholder="Your Address"></textarea>
+                </div>
+                <div class="input">
+                    <span>Your Message to Us</span>
+                    <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <input type="submit" value="Book Now" class="btn">
+
+        </form>
+    </section>
+    <!-- booking slot ends here  -->
+    {% endblock content %}
+
+ 

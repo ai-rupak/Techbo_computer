@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="home" id="home">
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper">
+            <!-- 1  -->
+        
+            <div class="swiper-slide slide">
+
+                <div class="image">
+                    <p>Image URL:{% for i in post %} {{ i.featured_image.url }}{% endfor %}</p>
+                    <img src="{% for i in post %}{{i.featured_image}}{% endfor %}" alt="image">
+                </div>
+                <div class="content">
+                    <span>Our Special Photographs</span>
+                    <h4>{% for i in post %}{{i.title}}{% endfor %}</h4>
+                    <br><br>
+                    <p>{% for i in post %}{{i.content |truncatechars:200|safe}}{% endfor %}
+                    </p>
+                    {% comment %} <a href="#" class="btn">See Details</a> {% endcomment %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+{% endblock content %}
