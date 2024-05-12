@@ -1,1 +1,1 @@
-# Techbo_computer
+# Techno_computer
